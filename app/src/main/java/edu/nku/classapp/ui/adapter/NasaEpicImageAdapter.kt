@@ -67,7 +67,7 @@ class NasaEpicImageAdapter(
         viewType: Int
     ): NasaEpicImageViewHolder {
         val binding =
-            ImageCardViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)  // Updated binding
+            ImageCardViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
         return NasaEpicImageViewHolder(binding) { position ->
             onImageClicked(nasaEpicImages[position], position)

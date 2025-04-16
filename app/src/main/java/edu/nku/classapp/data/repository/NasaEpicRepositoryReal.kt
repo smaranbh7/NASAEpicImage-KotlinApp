@@ -7,6 +7,7 @@ import javax.inject.Inject
 class NasaEpicRepositoryReal @Inject constructor(
     private val nasaEpicApi: NasaEpicApi
 ) : NasaEpicRepository {
+
     override suspend fun getImages(): NasaEpicApiResponse {
         val result = nasaEpicApi.getImages()
         return if (result.isSuccessful) {
@@ -23,6 +24,28 @@ class NasaEpicRepositoryReal @Inject constructor(
         return if (result.isSuccessful) {
             result.body()?.let {
                 NasaEpicApiResponse.Success(it)
+            } ?: NasaEpicApiResponse.Error
+        } else {
+            NasaEpicApiResponse.Error
+        }
+    }
+
+    override suspend fun getImageByIdentifier(identifier: String): NasaEpicApiResponse {
+        val result = nasaEpicApi.getImages()
+        return if (result.isSuccessful) {
+            result.body()?.find { it.identifier == identifier }?.let { image ->
+                NasaEpicApiResponse.SingleImageSuccess(image)
+            } ?: NasaEpicApiResponse.Error
+        } else {
+            NasaEpicApiResponse.Error
+        }
+    }
+
+    override suspend fun getEnhancedImageByIdentifier(identifier: String): NasaEpicApiResponse {
+        val result = nasaEpicApi.getEnhancedImages()
+        return if (result.isSuccessful) {
+            result.body()?.find { it.identifier == identifier }?.let { image ->
+                NasaEpicApiResponse.SingleImageSuccess(image)
             } ?: NasaEpicApiResponse.Error
         } else {
             NasaEpicApiResponse.Error

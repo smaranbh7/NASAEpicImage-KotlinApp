@@ -21,9 +21,8 @@ class NasaEpicImageViewModel @Inject constructor(
         MutableStateFlow<NasaEpicImageState>(NasaEpicImageState.Loading)
     val images: StateFlow<NasaEpicImageState> = _images.asStateFlow()
 
-    // Function to load images (normal or enhanced)
+
     fun loadImages(useEnhanced: Boolean = false) = viewModelScope.launch {
-        // Fetch either enhanced or regular images based on the parameter
         when (val response = if (useEnhanced) {
             nasaEpicRepository.getEnhancedImages()
         } else {
@@ -37,12 +36,12 @@ class NasaEpicImageViewModel @Inject constructor(
         }
     }
 
-    // Sealed class to represent different states of image fetching
+
     sealed class NasaEpicImageState {
         data class Success(val images: List<NasaEpicImageResponse.EpicImageItem>) :
             NasaEpicImageState()
 
-        data object Failure : NasaEpicImageState() // Failure state with no data
-        data object Loading : NasaEpicImageState()  // Loading state
+        data object Failure : NasaEpicImageState()
+        data object Loading : NasaEpicImageState()
     }
 }

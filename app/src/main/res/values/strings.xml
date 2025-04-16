@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">NASA EPIC Images</string>
+    <string name="hello_world">Hello, World!</string>
+    <string name="a_nasa_epic_image">a nasa epic image</string>
+    <string name="image_identifier">ID: %s</string>
+    <string name="image_date">Date: %s</string>
+    <string name="image_version">Version: %s</string>
+    <string name="image_caption">Caption: %s</string>
+    <string name="coordinates">Coordinates: %s</string>
+    <string name="dscovr_position">DSCOVR Position: %s</string>
+    <string name="lunar_position">Lunar Position: %s</string>
+    <string name="sun_position">Sun Position: %s</string>
+    <string name="an_unknown_error_occurred">Error Occurred</string>
+</resources>

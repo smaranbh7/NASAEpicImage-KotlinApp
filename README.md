@@ -19,23 +19,6 @@ For each image, the app shows:
 - **Earth Coordinates**: Latitude and Longitude of the Earth as seen in the image
 - **Timestamp**: Date and time when the image was taken
 
-## Setup and Installation
-
-1. Clone the repository:
-git clone https://github.com/yourusername/nasa-epic-image-viewer.git
-
-
-2. Install necessary dependencies:
-- If using Node.js, run:
-  ```
-  npm install
-  ```
-
-3. Run the app:
-- If using React, run:
-  ```
-  npm start
-  ```
 
 ## Technologies Used
 - [NASA EPIC API](https://epic.gsfc.nasa.gov/) for fetching images
